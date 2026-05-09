@@ -84,7 +84,7 @@ export default function ListScreen({ navigation }: ListScreenProps) {
           </View>
         </View>
 
-        <View style={appStyles.content}>
+        <View style={appStyles.listArea}>
           <TextInput
             style={appStyles.searchBox}
             placeholder="Buscar por nombre o marca"

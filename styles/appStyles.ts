@@ -101,6 +101,11 @@ export const appStyles = StyleSheet.create({
     padding: 16,
     gap: 12,
   },
+  listArea: {
+    flex: 1,
+    padding: 16,
+    gap: 12,
+  },
   searchBox: {
     backgroundColor: colors.card,
     borderWidth: 1,
@@ -129,6 +134,11 @@ export const appStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
+    shadowColor: colors.primaryDark,
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 2,
   },
   cardPressed: {
     opacity: 0.8,
