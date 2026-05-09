@@ -120,13 +120,16 @@ export default function DetailScreen({ navigation, route }: DetailScreenProps) {
 
         <View style={appStyles.actionRow}>
           <TouchableOpacity
-            style={[appStyles.button, appStyles.primaryButton]}
+            style={[appStyles.button, appStyles.crudButton, appStyles.primaryButton]}
             onPress={() => navigation.navigate('Form', { id })}
           >
             <Text style={appStyles.buttonText}>Editar</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[appStyles.button, appStyles.dangerButton]} onPress={confirmDelete}>
+          <TouchableOpacity
+            style={[appStyles.button, appStyles.crudButton, appStyles.dangerButton]}
+            onPress={confirmDelete}
+          >
             <Text style={appStyles.dangerText}>Eliminar</Text>
           </TouchableOpacity>
         </View>

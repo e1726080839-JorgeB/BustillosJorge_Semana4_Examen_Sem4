@@ -336,9 +336,15 @@ export const appStyles = StyleSheet.create({
   },
   actionRow: {
     flexDirection: 'row',
-    gap: 10,
+    alignItems: 'center',
+    gap: 8,
     paddingHorizontal: 16,
     paddingBottom: 20,
+  },
+  crudButton: {
+    flex: 1,
+    minHeight: 48,
+    borderRadius: 8,
   },
   button: {
     flex: 1,
