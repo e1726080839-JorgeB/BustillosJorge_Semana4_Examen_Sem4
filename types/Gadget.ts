@@ -1,0 +1,24 @@
+export interface Gadget {
+  id: number;
+  name: string;
+  brand: string;
+  category: string;
+  price: number;
+  purchaseYear: number;
+}
+
+export interface NewGadget {
+  name: string;
+  brand: string;
+  category: string;
+  price: number;
+  purchaseYear: number;
+}
+
+export interface GadgetForm {
+  name: string;
+  brand: string;
+  category: string;
+  price: string;
+  purchaseYear: string;
+}
