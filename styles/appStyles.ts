@@ -477,7 +477,9 @@ export const appStyles = StyleSheet.create({
     marginTop: -4,
   },
   formButtonBox: {
-    gap: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
     marginTop: 12,
   },
 });

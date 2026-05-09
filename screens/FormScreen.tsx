@@ -235,7 +235,7 @@ export default function FormScreen({ navigation, route }: FormScreenProps) {
 
             <View style={appStyles.formButtonBox}>
               <TouchableOpacity
-                style={[appStyles.button, appStyles.primaryButton, saving && appStyles.buttonDisabled]}
+                style={[appStyles.button, appStyles.crudButton, appStyles.primaryButton, saving && appStyles.buttonDisabled]}
                 disabled={saving}
                 onPress={saveGadget}
               >
@@ -243,7 +243,7 @@ export default function FormScreen({ navigation, route }: FormScreenProps) {
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[appStyles.button, appStyles.secondaryButton]}
+                style={[appStyles.button, appStyles.crudButton, appStyles.secondaryButton]}
                 disabled={saving}
                 onPress={() => navigation.goBack()}
               >
