@@ -67,6 +67,17 @@ export default function FormScreen({ navigation, route }: FormScreenProps) {
     setForm({ ...form, [field]: value });
   };
 
+  const changePrice = (value: string) => {
+    const cleanValue = value.replace(',', '.').replace(/[^0-9.]/g, '');
+    const parts = cleanValue.split('.');
+    const nextValue = parts.length > 2 ? `${parts[0]}.${parts.slice(1).join('')}` : cleanValue;
+    changeField('price', nextValue);
+  };
+
+  const changeYear = (value: string) => {
+    changeField('purchaseYear', value.replace(/[^0-9]/g, '').slice(0, 4));
+  };
+
   const validateForm = (): NewGadget | null => {
     const name = form.name.trim();
     const brand = form.brand.trim();
@@ -75,27 +86,37 @@ export default function FormScreen({ navigation, route }: FormScreenProps) {
     const purchaseYear = Number(form.purchaseYear);
 
     if (name.length === 0) {
-      Alert.alert('Validación', 'El nombre no puede estar vacío');
+      Alert.alert('Validacion', 'El nombre no puede estar vacio');
       return null;
     }
 
     if (brand.length === 0) {
-      Alert.alert('Validación', 'La marca no puede estar vacía');
+      Alert.alert('Validacion', 'La marca no puede estar vacia');
       return null;
     }
 
     if (category.length === 0) {
-      Alert.alert('Validación', 'La categoría no puede estar vacía');
+      Alert.alert('Validacion', 'La categoria no puede estar vacia');
+      return null;
+    }
+
+    if (form.price.trim().length === 0) {
+      Alert.alert('Validacion', 'El precio no puede estar vacio');
       return null;
     }
 
     if (!Number.isFinite(price) || price <= 0) {
-      Alert.alert('Validación', 'El precio debe ser mayor a 0');
+      Alert.alert('Validacion', 'El precio debe ser mayor a 0');
+      return null;
+    }
+
+    if (form.purchaseYear.trim().length === 0) {
+      Alert.alert('Validacion', 'El anio no puede estar vacio');
       return null;
     }
 
     if (!Number.isInteger(purchaseYear) || purchaseYear < 2000 || purchaseYear > 2026) {
-      Alert.alert('Validación', 'El año debe estar entre 2000 y 2026');
+      Alert.alert('Validacion', 'El anio debe estar entre 2000 y 2026');
       return null;
     }
 
@@ -137,7 +158,7 @@ export default function FormScreen({ navigation, route }: FormScreenProps) {
             </View>
             <Text style={appStyles.formTitle}>{isEdit ? 'Editar gadget' : 'Nuevo gadget'}</Text>
             <Text style={appStyles.formSubtitle}>
-              {isEdit ? 'Actualiza la información del inventario' : 'Completa la información del producto'}
+              {isEdit ? 'Actualiza la informacion del inventario' : 'Completa la informacion del producto'}
             </Text>
           </View>
 
@@ -169,7 +190,7 @@ export default function FormScreen({ navigation, route }: FormScreenProps) {
             </View>
 
             <View style={appStyles.field}>
-              <Text style={appStyles.fieldLabel}>Categoría *</Text>
+              <Text style={appStyles.fieldLabel}>Categoria *</Text>
               <TextInput
                 style={activeInputStyle(focusedField === 'category')}
                 placeholder="Laptop, Phone, Tablet"
@@ -189,7 +210,7 @@ export default function FormScreen({ navigation, route }: FormScreenProps) {
                   placeholder="1999.99"
                   placeholderTextColor={colors.muted}
                   value={form.price}
-                  onChangeText={(value) => changeField('price', value)}
+                  onChangeText={changePrice}
                   onFocus={() => setFocusedField('price')}
                   onBlur={() => setFocusedField('')}
                   keyboardType="decimal-pad"
@@ -197,13 +218,13 @@ export default function FormScreen({ navigation, route }: FormScreenProps) {
               </View>
 
               <View style={[appStyles.field, appStyles.formHalf]}>
-                <Text style={appStyles.fieldLabel}>Año *</Text>
+                <Text style={appStyles.fieldLabel}>Anio *</Text>
                 <TextInput
                   style={activeInputStyle(focusedField === 'purchaseYear')}
                   placeholder="2024"
                   placeholderTextColor={colors.muted}
                   value={form.purchaseYear}
-                  onChangeText={(value) => changeField('purchaseYear', value)}
+                  onChangeText={changeYear}
                   onFocus={() => setFocusedField('purchaseYear')}
                   onBlur={() => setFocusedField('')}
                   keyboardType="numeric"
