@@ -454,10 +454,21 @@ export const appStyles = StyleSheet.create({
   },
   formRow: {
     flexDirection: 'row',
-    gap: 10,
+    alignItems: 'flex-start',
+    gap: 8,
+  },
+  formNumberInput: {
+    minHeight: 46,
+    paddingHorizontal: 12,
   },
   formHalf: {
     flex: 1,
+  },
+  formRowHelp: {
+    color: colors.muted,
+    fontSize: 12,
+    fontStyle: 'italic',
+    marginTop: -4,
   },
   formButtonBox: {
     gap: 10,

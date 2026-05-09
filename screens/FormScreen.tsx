@@ -206,7 +206,7 @@ export default function FormScreen({ navigation, route }: FormScreenProps) {
               <View style={[appStyles.field, appStyles.formHalf]}>
                 <Text style={appStyles.fieldLabel}>Precio *</Text>
                 <TextInput
-                  style={activeInputStyle(focusedField === 'price')}
+                  style={[activeInputStyle(focusedField === 'price'), appStyles.formNumberInput]}
                   placeholder="1999.99"
                   placeholderTextColor={colors.muted}
                   value={form.price}
@@ -220,7 +220,7 @@ export default function FormScreen({ navigation, route }: FormScreenProps) {
               <View style={[appStyles.field, appStyles.formHalf]}>
                 <Text style={appStyles.fieldLabel}>Anio *</Text>
                 <TextInput
-                  style={activeInputStyle(focusedField === 'purchaseYear')}
+                  style={[activeInputStyle(focusedField === 'purchaseYear'), appStyles.formNumberInput]}
                   placeholder="2024"
                   placeholderTextColor={colors.muted}
                   value={form.purchaseYear}
@@ -229,9 +229,9 @@ export default function FormScreen({ navigation, route }: FormScreenProps) {
                   onBlur={() => setFocusedField('')}
                   keyboardType="numeric"
                 />
-                <Text style={appStyles.helpText}>Rango: 2000-2026</Text>
               </View>
             </View>
+            <Text style={appStyles.formRowHelp}>Rango de anio permitido: 2000-2026</Text>
 
             <View style={appStyles.formButtonBox}>
               <TouchableOpacity
