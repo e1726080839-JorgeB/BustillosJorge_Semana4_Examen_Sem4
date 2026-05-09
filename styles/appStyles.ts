@@ -2,18 +2,17 @@ import { StyleSheet } from 'react-native';
 import type { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 export const colors = {
-  background: '#fbf7f0',
-  panel: '#f2e7d8',
-  card: '#fffaf3',
-  cardStrong: '#ead9c4',
+  background: '#fcf8f1',
+  panel: '#f1dfc9',
+  card: '#fffdf8',
+  cardStrong: '#e5cfb4',
   text: '#3d2b20',
-  muted: '#806a5a',
-  border: '#d9c3aa',
-  primary: '#a86f3d',
-  primaryDark: '#6f4526',
+  muted: '#755f4e',
+  border: '#d7bea0',
+  primary: '#9b6335',
+  primaryDark: '#5b351e',
   green: '#2f7d50',
   red: '#b34136',
-  blue: '#7d5a3a',
   white: '#ffffff',
 };
 
@@ -85,6 +84,11 @@ export const appStyles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 12,
     borderRadius: 8,
+    shadowColor: colors.primaryDark,
+    shadowOpacity: 0.18,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 3,
   },
   countNumber: {
     color: colors.white,
@@ -115,6 +119,11 @@ export const appStyles = StyleSheet.create({
     paddingVertical: 12,
     color: colors.text,
     fontSize: 16,
+    shadowColor: colors.primaryDark,
+    shadowOpacity: 0.06,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 1,
   },
   resultText: {
     color: colors.muted,
@@ -139,9 +148,6 @@ export const appStyles = StyleSheet.create({
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 4 },
     elevation: 2,
-  },
-  cardPressed: {
-    opacity: 0.8,
   },
   iconBox: {
     width: 56,
@@ -266,7 +272,7 @@ export const appStyles = StyleSheet.create({
   detailHero: {
     alignItems: 'center',
     backgroundColor: colors.panel,
-    paddingVertical: 22,
+    paddingVertical: 26,
     borderBottomWidth: 1,
     borderBottomColor: colors.border,
     gap: 10,
@@ -293,8 +299,13 @@ export const appStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     borderRadius: 8,
-    padding: 14,
+    padding: 16,
     gap: 4,
+    shadowColor: colors.primaryDark,
+    shadowOpacity: 0.06,
+    shadowRadius: 7,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 1,
   },
   twoColumns: {
     flexDirection: 'row',
@@ -336,6 +347,11 @@ export const appStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 12,
+    shadowColor: colors.primaryDark,
+    shadowOpacity: 0.1,
+    shadowRadius: 7,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 2,
   },
   primaryButton: {
     backgroundColor: colors.primary,
@@ -371,7 +387,7 @@ export const appStyles = StyleSheet.create({
   formHero: {
     backgroundColor: colors.panel,
     paddingHorizontal: 20,
-    paddingTop: 14,
+    paddingTop: 18,
     paddingBottom: 22,
     borderBottomWidth: 1,
     borderBottomColor: colors.border,
@@ -421,6 +437,11 @@ export const appStyles = StyleSheet.create({
     paddingHorizontal: 14,
     color: colors.text,
     fontSize: 16,
+    shadowColor: colors.primaryDark,
+    shadowOpacity: 0.04,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 1,
   },
   inputActive: {
     borderColor: colors.primary,
