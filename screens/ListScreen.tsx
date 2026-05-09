@@ -74,7 +74,7 @@ export default function ListScreen({ navigation }: ListScreenProps) {
             <View>
               <Text style={appStyles.overline}>Inventario</Text>
               <Text style={appStyles.title}>Mis Gadgets</Text>
-              <Text style={appStyles.subtitle}>Control de productos tecnológicos</Text>
+              <Text style={appStyles.subtitle}>Control de productos tecnologicos</Text>
             </View>
 
             <View style={appStyles.countBadge}>
@@ -106,7 +106,7 @@ export default function ListScreen({ navigation }: ListScreenProps) {
             ListEmptyComponent={
               <View style={appStyles.emptyBox}>
                 <Text style={appStyles.emptyTitle}>Sin resultados</Text>
-                <Text style={appStyles.emptyText}>Agrega un gadget o cambia la búsqueda.</Text>
+                <Text style={appStyles.emptyText}>Agrega un gadget o cambia la busqueda.</Text>
               </View>
             }
           />

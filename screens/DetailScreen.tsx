@@ -30,23 +30,23 @@ export default function DetailScreen({ navigation, route }: DetailScreenProps) {
     }, [loadGadget])
   );
 
-  const confirmDelete = () => {
-    Alert.alert('Eliminar gadget', '¿Deseas eliminar este producto?', [
-      { text: 'Cancelar', style: 'cancel' },
-      { text: 'Eliminar', style: 'destructive', onPress: deleteGadget },
-    ]);
-  };
-
   const deleteGadget = async () => {
     try {
       setLoading(true);
       await GadgetService.deleteGadget(id);
-      navigation.navigate('List');
+      navigation.popToTop();
     } catch {
       Alert.alert('Error', 'No se pudo eliminar el gadget');
     } finally {
       setLoading(false);
     }
+  };
+
+  const confirmDelete = () => {
+    Alert.alert('Eliminar gadget', 'Deseas eliminar este producto?', [
+      { text: 'Cancelar', style: 'cancel' },
+      { text: 'Eliminar', style: 'destructive', onPress: deleteGadget },
+    ]);
   };
 
   if (loading && gadget === null) {
@@ -64,7 +64,7 @@ export default function DetailScreen({ navigation, route }: DetailScreenProps) {
       <SafeAreaView style={appStyles.safe}>
         <View style={appStyles.header}>
           <TouchableOpacity style={appStyles.backButton} onPress={() => navigation.goBack()}>
-            <Text style={appStyles.backText}>‹</Text>
+            <Text style={appStyles.backText}>{'<'}</Text>
           </TouchableOpacity>
         </View>
         <View style={appStyles.loadingScreen}>
@@ -80,7 +80,7 @@ export default function DetailScreen({ navigation, route }: DetailScreenProps) {
         <View style={appStyles.header}>
           <View style={appStyles.headerRow}>
             <TouchableOpacity style={appStyles.backButton} onPress={() => navigation.goBack()}>
-              <Text style={appStyles.backText}>‹</Text>
+              <Text style={appStyles.backText}>{'<'}</Text>
             </TouchableOpacity>
             <Text style={appStyles.gadgetName}>Detalle del gadget</Text>
           </View>
@@ -107,7 +107,7 @@ export default function DetailScreen({ navigation, route }: DetailScreenProps) {
               <Text style={appStyles.infoValue}>{gadget.brand}</Text>
             </View>
             <View style={[appStyles.infoCard, appStyles.columnCard]}>
-              <Text style={appStyles.infoLabel}>Año</Text>
+              <Text style={appStyles.infoLabel}>Anio</Text>
               <Text style={appStyles.infoValue}>{gadget.purchaseYear}</Text>
             </View>
           </View>
